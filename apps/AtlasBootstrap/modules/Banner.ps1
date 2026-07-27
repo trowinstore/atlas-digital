@@ -14,3 +14,5 @@ function Show-AtlasBanner {
     Write-Host "Projeto Atlas Digital"
     Write-Host ""
 }
+
+
