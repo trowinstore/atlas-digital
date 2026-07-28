@@ -1,7 +1,20 @@
 {
-    "Version": "1.0.0",
-    "Project": "AtlasBootstrap",
-    "Author": "Henrique",
-    "Environment": "Development",
-    "LogLevel": "Info"
+    "Project": {
+        "Name": "Atlas Digital",
+        "Version": "1.0.0",
+        "Author": "Henrique"
+    },
+
+    "Urls": {
+        "GitHub": "https://github.com/trowinstore/atlas-digital",
+        "Pipefy": "https://app.pipefy.com",
+        "Hostinger": "https://hpanel.hostinger.com",
+        "ChatGPT": "https://chat.openai.com"
+    },
+
+    "Folders": {
+        "Logs": "logs",
+        "Reports": "reports",
+        "Output": "output"
+    }
 }

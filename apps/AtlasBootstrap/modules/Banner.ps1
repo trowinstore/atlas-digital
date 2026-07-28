@@ -1,5 +1,9 @@
 function Show-AtlasBanner {
 
+    param(
+        $Config
+    )
+
     Clear-Host
 
     Write-Host ""
@@ -7,11 +11,11 @@ function Show-AtlasBanner {
     Write-Host ""
     Write-Host "              ATLAS FRAMEWORK"
     Write-Host ""
-    Write-Host "            Bootstrap v1.0.0"
+    Write-Host "            Bootstrap v$($Config.Project.Version)"
     Write-Host ""
     Write-Host "===================================================="
     Write-Host ""
-    Write-Host "Projeto Atlas Digital"
+    Write-Host $Config.Project.Name
     Write-Host ""
 }
 

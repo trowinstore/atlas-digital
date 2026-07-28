@@ -1,19 +1,29 @@
 # ==========================================
-# Atlas Framework
-# AtlasBootstrap v1.0
-# Arquivo Principal
+# Inicialização
 # ==========================================
 
-# Caminho da pasta do script
 $Root = Split-Path -Parent $PSScriptRoot
 
-# Carrega o módulo Banner
+# ==========================================
+# Carregamento de módulos
+# ==========================================
+
 . "$Root\modules\Banner.ps1"
-
 . "$Root\modules\Helpers.ps1"
-
+. "$Root\modules\Logger.ps1"
+. "$Root\modules\ConfigManager.ps1"
 . "$Root\modules\Validator.ps1"
 
-# Exibe o banner
-Show-AtlasBanner
+# ==========================================
+# Execução
+# ==========================================
+
+Write-AtlasLog -Level INFO -Message "AtlasBootstrap iniciado."
+
+$Config = Get-AtlasConfig
+
+
+Show-AtlasBanner -Config $Config
 Test-AtlasEnvironment
+
+Write-AtlasLog -Level INFO -Message "Validação do ambiente concluída."
