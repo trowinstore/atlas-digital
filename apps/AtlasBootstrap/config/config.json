@@ -13,8 +13,21 @@
     },
 
     "Folders": {
-        "Logs": "logs",
-        "Reports": "reports",
-        "Output": "output"
-    }
+    "Logs": "logs",
+    "Reports": "reports",
+    "Output": "output"
+},
+
+"Workspace": {
+    "Applications": [
+        "code"
+    ],
+
+    "Websites": [
+        "https://github.com/trowinstore/atlas-digital",
+        "https://app.pipefy.com",
+        "https://chat.openai.com",
+        "https://hpanel.hostinger.com"
+    ]
+}
 }

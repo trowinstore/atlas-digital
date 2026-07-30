@@ -13,6 +13,7 @@ $Root = Split-Path -Parent $PSScriptRoot
 . "$Root\modules\Logger.ps1"
 . "$Root\modules\ConfigManager.ps1"
 . "$Root\modules\Validator.ps1"
+. "$Root\modules\Workspace.ps1"
 
 # ==========================================
 # Execução
@@ -22,8 +23,10 @@ Write-AtlasLog -Level INFO -Message "AtlasBootstrap iniciado."
 
 $Config = Get-AtlasConfig
 
-
 Show-AtlasBanner -Config $Config
+
 Test-AtlasEnvironment
+
+Start-AtlasWorkspace
 
 Write-AtlasLog -Level INFO -Message "Validação do ambiente concluída."
