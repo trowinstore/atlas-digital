@@ -1,16 +1,17 @@
 # Atlas Digital - Status Atual
 
-## Estado do Repositório
+## Estado do Repitório
 
 **Branch atual:** main (origin/main sincronizado)
 
-**Último commit:** 83589a4 - "feat: inicializar estrutura Atlas Digital"
+**Último commit:** 11694ab - "docs: atualizar CURRENT_STATUS com estado pós-commit 83589a4"
 
 **Última verificação:** 2026-08-29
 
 ### Histórico de Commits Recentes
 | Hash | Mensagem |
 |------|----------|
+| 11694ab | docs: atualizar CURRENT_STATUS com estado pós-commit 83589a4 |
 | 83589a4 | feat: inicializar estrutura Atlas Digital |
 | 6812888 | feat: implementa Workspace Launcher configurável |
 | 5f2c19f | chore: adiciona logs ao gitignore |
@@ -51,29 +52,46 @@
 
 ---
 
-## Estado dos Sites
+## Estado dos Sites (Diagnóstico via REST API - 2026-08-29)
 
 ### trowinstore.com.br
-- **Status:** Ativo (recuperado do modo manutenção)
-- **Tema:** Template "Matrix" (antigo/cru)
-- **Conteúdo identificado:**
-  - Páginas: Home, Sobre Nós, Contato, Disclosure, Política de Privacidade, Termos de Uso
-  - Categorias: "Quais as Novidades", "Videos"
-  - Mensagens padrão: "Nothing found"
-  - Referências antigas: "Mude nas Configurações", "Tagline"
+- **Status:** Ativo, API respondendo (HTTP 200, 1.8s)
+- **Tema ativo:** standard-pro (não "Matrix")
+- **WooCommerce:** Não instalado
+- **Páginas (5):**
+  - [35] Temos de Uso (terms-of-use)
+  - [33] Politica de Privacidade (privacy-policy)
+  - [31] Disclosure (disclosure)
+  - [29] Contato (contact)
+  - [25] Sobre Nos (about)
+- **Posts:** 0 publicados
+- **Categorias (2):** Videos (0 posts), What's New (0 posts)
+- **Tags:** 0
+- **Mídia (4):** bg1.jpg, post-banner.jpg, sidebar-banner.jpg, header-ad.jpg (2020/08)
+- **Diagnóstico:** Site institucional abandonado, sem conteúdo real
 
 ### ofertasamazon.trowinstore.com.br
-- **Status:** Modo manutenção desativado
-- **Situação:** Houve confusão anterior com instalação do domínio principal
-- **Próximo passo:** Confirmar separação clara das instalações
+- **Status:** Ativo, API respondendo (HTTP 200, 5.1s)
+- **Tema ativo:** astra (tema popular, leve, SEO-friendly)
+- **WooCommerce:** ✅ Ativo
+- **Páginas (11):**
+  - [1008] Home
+  - [1004] Contact
+  - [1002] About
+  - [1378-1381] Shop, Cart, Checkout, My Account (recentes)
+  - [6-9] Shop, Cart, Checkout, My Account (antigas - duplicadas)
+- **Posts:** 1 (Hello world! padrão)
+- **Categorias (1):** Uncategorized (1 post)
+- **Diagnóstico:** Loja WooCommerce vazia com páginas duplicadas
 
 ---
 
 ## Próximas Ações Prioritárias
 
-1. **Diagnosticar trowinstore.com.br** - Tema, plugins, conteúdo
-2. **Diagnosticar ofertasamazon.trowinstore.com.br** - Instalação, tema, plugins
-3. **Testar REST API** - Validar acesso não-invasivo aos sites
-4. **Planejar automações** - Scripts para publicação de conteúdo
+1. **Configurar Application Passwords** - Para diagnóstico via API autenticada
+2. **Limpar páginas duplicadas** - ofertasamazon tem 4 páginas WooCommerce duplicadas
+3. **Planejar conteúdo** - Ambos os sites estão vazios
+4. **Testar REST API autenticada** - Validar leitura/escrita
+5. **Planejar automações** - Scripts para publicação
 
 *Consulte docs/NEXT_ACTIONS.md para checklist completo*
