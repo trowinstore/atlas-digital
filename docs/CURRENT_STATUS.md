@@ -4,10 +4,18 @@
 
 **Branch atual:** main (origin/main sincronizado)
 
+**Último commit:** 83589a4 - "feat: inicializar estrutura Atlas Digital"
+
 **Última verificação:** 2026-08-29
 
-### Arquivos Modificados (Pendentes de Commit)
-- .gitignore
+### Histórico de Commits Recentes
+| Hash | Mensagem |
+|------|----------|
+| 83589a4 | feat: inicializar estrutura Atlas Digital |
+| 6812888 | feat: implementa Workspace Launcher configurável |
+| 5f2c19f | chore: adiciona logs ao gitignore |
+
+### Arquivos Modificados Localmente (NÃO commitados)
 - apps/AtlasBootstrap/config/config.json
 - apps/AtlasBootstrap/modules/ConfigManager.ps1
 - apps/AtlasBootstrap/modules/Logger.ps1
@@ -15,29 +23,31 @@
 - apps/AtlasBootstrap/modules/Workspace.ps1
 - apps/AtlasBootstrap/src/AtlasBootstrap.ps1
 
-### Diretórios Não Rastreados
-- automations/
-- config/
-- wordpress/
+*Motivo: Alterações em progresso preservadas conforme decisão do projeto*
 
 ---
 
-## Estrutura Criada
+## Estrutura Versionada
 
-### WordPress
-- `wordpress/plugins/` (contém .gitkeep)
-- `wordpress/snippets/` (contém .gitkeep)
-- `wordpress/themes/` (contém .gitkeep)
-- *Nenhum conteúdo real ainda*
+### Documentação (docs/)
+- ✅ PROJECT_CONTEXT.md
+- ✅ CURRENT_STATUS.md
+- ✅ DECISIONS.md
+- ✅ NEXT_ACTIONS.md
+- ✅ AI_HANDOFF.md
 
-### Automações
-- `automations/affiliate/` (contém .gitkeep)
-- `automations/wordpress/` (contém .gitkeep)
-- *Nenhum script real ainda*
+### Configurações (config/)
+- ✅ sites.example.json - URLs e endpoints REST API públicos
+- ✅ automations.example.json - Estrutura de automações (desativado)
 
-### Configurações de Exemplo
-- `config/sites.example.json` - URLs e endpoints REST API públicos
-- `config/automations.example.json` - Estrutura de automações (todo desativado)
+### WordPress (wordpress/)
+- wordpress/plugins/ (contém .gitkeep)
+- wordpress/snippets/ (contém .gitkeep)
+- wordpress/themes/ (contém .gitkeep)
+
+### Automações (automations/)
+- automations/affiliate/ (contém .gitkeep)
+- automations/wordpress/ (contém .gitkeep)
 
 ---
 
@@ -59,19 +69,11 @@
 
 ---
 
-## Documentação
+## Próximas Ações Prioritárias
 
-| Arquivo | Status |
-|---------|--------|
-| docs/PROJECT_CONTEXT.md | ✅ Criado |
-| docs/CURRENT_STATUS.md | 🔄 Criando agora |
-| docs/DECISIONS.md | ⏳ Pendente |
-| docs/NEXT_ACTIONS.md | ⏳ Pendente |
-| docs/AI_HANDOFF.md | ⏳ Pendente |
+1. **Diagnosticar trowinstore.com.br** - Tema, plugins, conteúdo
+2. **Diagnosticar ofertasamazon.trowinstore.com.br** - Instalação, tema, plugins
+3. **Testar REST API** - Validar acesso não-invasivo aos sites
+4. **Planejar automações** - Scripts para publicação de conteúdo
 
----
-
-## Situação do AtlasBootstrap
-- 6 arquivos modificados localmente
-- **PRESERVADOS** - Ferramenta congelada como suporte
-- Melhorias ativas: Project.Debug, logging aprimorado, módulos melhorados
+*Consulte docs/NEXT_ACTIONS.md para checklist completo*
