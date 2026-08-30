@@ -1,0 +1,37 @@
+{
+    "description": "Configurações públicas dos sites WordPress do Atlas Digital. NUNCA incluir credenciais aqui.",
+    "version": "1.0.0",
+    "updated": "2026-08-28",
+    "sites": [
+        {
+            "name": "trowinstore",
+            "display_name": "Trowin Store",
+            "description": "Site principal de loja virtual",
+            "url": "https://trowinstore.com.br",
+            "rest_api_base": "https://trowinstore.com.br/wp-json/wp/v2",
+            "rest_api_endpoints": {
+                "posts": "/posts",
+                "pages": "/pages",
+                "categories": "/categories",
+                "tags": "/tags",
+                "media": "/media",
+                "users": "/users"
+            }
+        },
+        {
+            "name": "ofertasamazon",
+            "display_name": "Ofertas Amazon",
+            "description": "Site de afiliados e ofertas da Amazon",
+            "url": "https://ofertasamazon.trowinstore.com.br",
+            "rest_api_base": "https://ofertasamazon.trowinstore.com.br/wp-json/wp/v2",
+            "rest_api_endpoints": {
+                "posts": "/posts",
+                "pages": "/pages",
+                "categories": "/categories",
+                "tags": "/tags",
+                "media": "/media",
+                "users": "/users"
+            }
+        }
+    ]
+}

@@ -1,2 +1,23 @@
 # Logs
 apps/AtlasBootstrap/logs/*.log
+
+# Secrets e configurações locais
+**/config.local.json
+**/config.secrets.json
+**/.env
+**/.env.*
+config/*.local.json
+config/secrets.json
+config/secrets.local.json
+wordpress/sites/*/config.local.json
+wordpress/sites/*/.htaccess.local
+automations/**/*.local.*
+automations/**/credentials.json
+
+# Arquivos temporários
+*.tmp
+*.log
+
+# Dados sensíveis WordPress
+wordpress/sites/**/wp-config.local.php
+wordpress/sites/**/.htpasswd

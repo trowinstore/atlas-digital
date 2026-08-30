@@ -1,0 +1,29 @@
+{
+    "description": "Estrutura de automações do Atlas Digital. Segredos ficam em arquivos .local, nunca aqui.",
+    "version": "1.0.0",
+    "updated": "2026-08-28",
+    "wordpress": {
+        "post_publishing": {
+            "enabled": false,
+            "schedule": "manual",
+            "rest_api_endpoint": "/wp-json/atlas/v1/publish",
+            "note": "Habilitar quando a API customizada estiver implementada"
+        },
+        "content_sync": {
+            "enabled": false,
+            "schedule": "hourly",
+            "note": "Sincronização de conteúdo entre sites"
+        }
+    },
+    "affiliate": {
+        "amazon": {
+            "enabled": false,
+            "api_base": "https://api.amazon.com",
+            "note": "Usar credenciais reais apenas em arquivo .local"
+        }
+    },
+    "structure": {
+        "wordpress": "automations/wordpress/",
+        "affiliate": "automations/affiliate/"
+    }
+}
