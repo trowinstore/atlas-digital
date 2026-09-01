@@ -4,13 +4,14 @@
 
 **Branch atual:** main (origin/main sincronizado)
 
-**Último commit:** 4b1de92 - "docs: atualizar CURRENT_STATUS com diagnóstico completo dos sites"
+**Último commit:** e86a379 - "docs: atualizar CURRENT_STATUS com Wordfence ativado e diagnóstico de plugins"
 
 **Última verificação:** 2026-08-29
 
 ### Histórico de Commits Recentes
 | Hash | Mensagem |
 |------|----------|
+| e86a379 | docs: atualizar CURRENT_STATUS com Wordfence ativado e diagnóstico de plugins |
 | 4b1de92 | docs: atualizar CURRENT_STATUS com diagnóstico completo dos sites |
 | 11694ab | docs: atualizar CURRENT_STATUS com estado pós-commit 83589a4 |
 | 83589a4 | feat: inicializar estrutura Atlas Digital |
@@ -81,21 +82,26 @@
 ### ofertasamazon.trowinstore.com.br
 - **Status:** Ativo, API respondendo (HTTP 200, 5.1s)
 - **Tema ativo:** astra
-- **WooCommerce:** Inativo (páginas existem mas plugin desativado)
+- **WooCommerce:** ✅ ATIVO (v10.7.0)
 - **URL:** https://ofertasamazon.trowinstore.com.br
 - **Email admin:** trowin2@gmail.com
 - **Idioma:** pt_BR
 - **Usuário API:** atlas-api (ID: 2)
-- **Plugins ativos (15):** Pretty Links, All in One SEO, Elementor, Spectra, LiteSpeed Cache, Site Kit, OttoKit, WPForms, IA Hostinger, etc.
-- **Plugins inativos notáveis:** WooCommerce, Wordfence (✅ **agora ATIVO**), WooPayments
-- **Páginas (11):**
-  - [1008] Home, [1004] Contact, [1002] About
-  - [1378-1381] Shop, Cart, Checkout, My Account (recentes)
-  - [6-9] Shop, Cart, Checkout, My Account (antigas - duplicadas)
+- **Plugins ativos (16):** Pretty Links, All in One SEO, Elementor, Spectra, LiteSpeed Cache, Site Kit, OttoKit, WPForms, IA Hostinger, Wordfence, WooCommerce
+- **Plugins inativos notáveis:** WooPayments, SureRank, Cart Abandonment Recovery
+- **Páginas (7):**
+  - [1008] Home
+  - [1004] Contact
+  - [1002] About
+  - [6] Shop
+  - [7] Cart
+  - [8] Checkout
+  - [9] My Account
+- **Páginas WooCommerce duplicadas:** 4 excluídas (IDs 1378-1381) + 4 movidas para lixeira (IDs 6-9 originais mantidas)
 - **Posts:** 1 (Hello world! padrão)
 - **Categorias (1):** Uncategorized
 - **Atualizações de plugins:** 0 pendentes
-- **Diagnóstico:** Site preparado para marketing de afiliados (Pretty Links + AIOSEO), com Wordfence ativado para segurança
+- **Diagnóstico:** Site preparado para operação de marketing de afiliados, com WooCommerce ativo e plugins essenciais
 
 ---
 
@@ -107,10 +113,15 @@
 - ✅ Autenticação REST API validada via endpoint 
 - ⚠️ **IMPORTANTE:** Application Passwords foram expostas em conversa anterior — devem ser revogadas no painel WordPress de cada site
 
+### Ações de Segurança Executadas (2026-08-29)
+- ✅ **Wordfence Security v8.1.4** ativado no ofertasamazon
+- ✅ **WooCommerce v10.7.0** ativado no ofertasamazon
+- ✅ **Páginas duplicadas WooCommerce** removidas (8 páginas duplicadas eliminadas)
+
 ### Status de Segurança
 - ✅ .gitignore protege credenciais locais
-- ✅ Wordfence ativado no ofertasamazon
-- ⚠️ Páginas WooCommerce duplicadas no ofertasamazon (6-9 e 1378-1381) precisam limpeza
+- ✅ Wordfence ativo no ofertasamazon
+- ✅ Páginas WooCommerce únicas (sem duplicatas)
 - ⚠️ Hostinger Affiliate Plugin ativo no trowinstore mas site sem conteúdo
 
 ---
@@ -119,10 +130,10 @@
 
 1. **Revogar Application Passwords expostas** - Segurança comprometida
 2. **Gerar novas Application Passwords** - Atualizar 
-3. **Limpar páginas duplicadas** - ofertasamazon tem 4 páginas WooCommerce duplicadas
-4. **Ativar WooCommerce no ofertasamazon** - Plugin inativo apesar das páginas existirem
-5. **Planejar conteúdo inicial** - Ambos os sites estão vazios
-6. **Configurar Pretty Links** - Para operação de afiliados no ofertasamazon
-7. **Atualizar título do trowinstore** - Ainda diz "Mude nas Configurações"
+3. **Planejar conteúdo inicial** - Ambos os sites estão vazios
+4. **Configurar Pretty Links** - Para operação de afiliados no ofertasamazon
+5. **Configurar All in One SEO** - Em ambos os sites
+6. **Atualizar título do trowinstore** - Ainda diz "Mude nas Configurações"
+7. **Configurar WooCommerce no ofertasamazon** - Definir moeda, métodos de pagamento, etc.
 
 *Consulte docs/NEXT_ACTIONS.md para checklist completo*
