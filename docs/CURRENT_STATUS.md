@@ -72,7 +72,7 @@
   - [31] Disclosure (disclosure)
   - [29] Contato (contact)
   - [25] Sobre Nós (about)
-- **Posts:** 0 publicados
+- **Posts (1):** Bem-vindo ao Atlas Digital! (ID: 314, status: publish)
 - **Categorias (2):** Videos (0), What's New (0)
 - **Tags:** 0
 - **Mídia (4):** Banners de 2020/08
@@ -98,7 +98,7 @@
   - [8] Checkout
   - [9] My Account
 - **Páginas WooCommerce duplicadas:** 4 excluídas (IDs 1378-1381) + 4 movidas para lixeira (IDs 6-9 originais mantidas)
-- **Posts:** 1 (Hello world! padrão)
+- **Posts (1):** Bem-vindo ao OfertaAmazon! (ID: 1, atualizado)
 - **Categorias (1):** Uncategorized
 - **Atualizações de plugins:** 0 pendentes
 - **Diagnóstico:** Site preparado para operação de marketing de afiliados, com WooCommerce ativo e plugins essenciais
@@ -123,6 +123,18 @@
 - ✅ Wordfence ativo no ofertasamazon
 - ✅ Páginas WooCommerce únicas (sem duplicatas)
 - ⚠️ Hostinger Affiliate Plugin ativo no trowinstore mas site sem conteúdo
+
+---
+
+## Conteúdo Publicado (2026-08-29)
+
+### trowinstore.com.br
+- **Post ID 314:** "Bem-vindo ao Atlas Digital!" (status: publish)
+- Introdução sobre marketing de afiliados, tutoriais YouTube e empreendedorismo digital
+
+### ofertasamazon.trowinstore.com.br
+- **Post ID 1:** "Bem-vindo ao OfertaAmazon!" (atualizado do padrão "Hello world!")
+- Introdução sobre produtos com desconto da Amazon, ofertas e análises
 
 ---
 
