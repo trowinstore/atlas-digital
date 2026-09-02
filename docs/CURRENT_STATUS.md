@@ -4,13 +4,14 @@
 
 **Branch atual:** main (origin/main sincronizado)
 
-**Último commit:** e86a379 - "docs: atualizar CURRENT_STATUS com Wordfence ativado e diagnóstico de plugins"
+**Último commit:** 9a1a1ec - "docs: atualizar CURRENT_STATUS com informações de links de afiliado criados"
 
 **Última verificação:** 2026-08-29
 
 ### Histórico de Commits Recentes
 | Hash | Mensagem |
 |------|----------|
+| 9a1a1ec | docs: atualizar CURRENT_STATUS com informações de links de afiliado criados |
 | e86a379 | docs: atualizar CURRENT_STATUS com Wordfence ativado e diagnóstico de plugins |
 | 4b1de92 | docs: atualizar CURRENT_STATUS com diagnóstico completo dos sites |
 | 11694ab | docs: atualizar CURRENT_STATUS com estado pós-commit 83589a4 |
