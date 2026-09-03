@@ -99,7 +99,11 @@
   - [8] Checkout
   - [9] My Account
 - **Páginas WooCommerce duplicadas:** 4 excluídas (IDs 1378-1381) + 4 movidas para lixeira (IDs 6-9 originais mantidas)
-- **Posts (1):** Bem-vindo ao OfertaAmazon! (ID: 1, atualizado)
+- **Posts (4):**
+  - ID 1: Bem-vindo ao OfertaAmazon! (publicado)
+  - ID 2073: Melhores Cadeiras Gamer Ergonômicas com Desconto
+  - ID 2074: Fones de Ouvido Noise Cancelling com Oferta Imperdível
+  - ID 2075: Cortador de Cabelo Elétrico Profissional - Oferta Limitada
 - **Categorias (1):** Uncategorized
 - **Atualizações de plugins:** 0 pendentes
 - **Diagnóstico:** Site preparado para operação de marketing de afiliados, com WooCommerce ativo e plugins essenciais
