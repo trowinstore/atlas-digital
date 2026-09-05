@@ -297,173 +297,126 @@ def diagnostic(site_key):
 # ============== INJEÇÃO DE TEMA COMPLETO ==============
 
 def inject_full_theme(site_key):
-    """Injeta CSS moderno + cria home page visual"""
+    """Injeta CSS moderno + cria/atualiza home page visual (sem duplicacao)"""
     c = load_config()
     site = c["sites"][site_key]
     print(f"\n=== Customizando visual completo: {site_key} ===")
 
-    # CSS moderno (tema Atlas Digital)
+    # CSS moderno (tema Atlas Digital) - versao compacta
     css = """
 /* === ATLAS DIGITAL — VISUAL COMPLETO === */
-body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-    background: #f5f7fa !important;
-    color: #2c3e50 !important;
-}
-.site-header, .header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
-    padding: 18px 0 !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
-}
-.site-title a, .site-name a, .blog-name a {
-    color: #ffffff !important;
-    font-size: 28px !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-}
-.site-description {
-    color: #c5c6c7 !important;
-    font-size: 14px !important;
-}
-nav.main-navigation, .main-nav, .primary-menu {
-    background: transparent !important;
-    margin-top: 10px !important;
-}
-nav a, .menu a, .main-nav a {
-    color: #ffffff !important;
-    font-weight: 500 !important;
-    padding: 8px 16px !important;
-    transition: color 0.3s !important;
-}
-nav a:hover, .menu a:hover {
-    color: #e94560 !important;
-}
-.content-area, .site-content {
-    background: #ffffff !important;
-    padding: 30px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
-    margin: 20px auto !important;
-    max-width: 1200px !important;
-}
-.entry-title, .post-title, h2.post-title a, h1.post-title {
-    color: #e94560 !important;
-    font-size: 24px !important;
-    margin-bottom: 15px !important;
-}
-.entry-content, .post-content, .post {
-    line-height: 1.8 !important;
-    color: #2c3e50 !important;
-    font-size: 16px !important;
-}
-.entry-content a, .post-content a {
-    color: #e94560 !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-}
-.entry-content a:hover, .post-content a:hover {
-    text-decoration: underline !important;
-}
-button, .button, input[type="submit"], .wp-block-button__link {
-    background: #e94560 !important;
-    color: #fff !important;
-    border-radius: 6px !important;
-    padding: 10px 20px !important;
-    border: none !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    transition: background 0.3s !important;
-}
-button:hover, .button:hover, input[type="submit"]:hover {
-    background: #c23850 !important;
-}
-.widget, .sidebar .widget {
-    background: #f8f9fa !important;
-    border-radius: 8px !important;
-    padding: 20px !important;
-    margin-bottom: 20px !important;
-}
-.widget-title, .widgettitle {
-    color: #1a1a2e !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    margin-bottom: 15px !important;
-    border-bottom: 2px solid #e94560 !important;
-    padding-bottom: 8px !important;
-}
-footer, .site-footer, .footer {
-    background: #0f3460 !important;
-    color: #ffffff !important;
-    padding: 40px 20px !important;
-    text-align: center !important;
-}
-footer a, .site-footer a {
-    color: #c5c6c7 !important;
-    text-decoration: none !important;
-}
-footer a:hover, .site-footer a:hover {
-    color: #e94560 !important;
-}
-@media (max-width: 768px) {
-    .site-title a, .site-name a { font-size: 22px !important; }
-    .content-area { padding: 20px !important; margin: 10px !important; }
-    .entry-title { font-size: 20px !important; }
-}
+body{font-family:'Segoe UI',Roboto,sans-serif!important;background:#f5f7fa!important;color:#2c3e50!important}
+.site-header,.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%)!important;padding:18px 0!important;box-shadow:0 2px 10px rgba(0,0,0,0.1)!important}
+.site-title a,.site-name a{color:#fff!important;font-size:28px!important;font-weight:700!important;text-decoration:none!important}
+.site-description{color:#c5c6c7!important;font-size:14px!important}
+nav.main-navigation,.main-nav,.primary-menu{background:transparent!important;margin-top:10px!important}
+nav a,.menu a,.main-nav a{color:#fff!important;font-weight:500!important;padding:8px 16px!important;transition:color 0.3s!important}
+nav a:hover,.menu a:hover{color:#e94560!important}
+.content-area,.site-content{background:#fff!important;padding:30px!important;border-radius:12px!important;box-shadow:0 2px 8px rgba(0,0,0,0.05)!important;margin:20px auto!important;max-width:1200px!important}
+.entry-title,.post-title,h2.post-title a,h1.post-title{color:#e94560!important;font-size:24px!important;margin-bottom:15px!important}
+.entry-content,.post-content,.post{line-height:1.8!important;color:#2c3e50!important;font-size:16px!important}
+.entry-content a,.post-content a{color:#e94560!important;text-decoration:none!important;font-weight:600!important}
+.entry-content a:hover,.post-content a:hover{text-decoration:underline!important}
+button,.button,input[type="submit"],.wp-block-button__link{background:#e94560!important;color:#fff!important;border-radius:6px!important;padding:10px 20px!important;border:none!important;font-weight:600!important;cursor:pointer!important;transition:background 0.3s!important}
+button:hover,.button:hover,input[type="submit"]:hover{background:#c23850!important}
+.widget,.sidebar .widget{background:#f8f9fa!important;border-radius:8px!important;padding:20px!important;margin-bottom:20px!important}
+.widget-title,.widgettitle{color:#1a1a2e!important;font-size:18px!important;font-weight:700!important;margin-bottom:15px!important;border-bottom:2px solid #e94560!important;padding-bottom:8px!important}
+footer,.site-footer,.footer{background:#0f3460!important;color:#fff!important;padding:40px 20px!important;text-align:center!important}
+footer a,.site-footer a{color:#c5c6c7!important;text-decoration:none!important}
+footer a:hover,.site-footer a:hover{color:#e94560!important}
+@media (max-width:768px){.site-title a,.site-name a{font-size:22px!important}.content-area{padding:20px!important;margin:10px!important}.entry-title{font-size:20px!important}}
 """
 
-    # Tentar injetar via WPCode
-    data = {
-        "title": f"Atlas Digital — Visual Theme",
-        "code": css,
-        "type": "css",
-        "status": "active"
-    }
-    r = request(site, "wp/v2/wpcode-snippets", "POST", data)
+    # 1. Verificar e tentar ativar WPCode
+    plugins_resp = request(site, "wp/v2/plugins?per_page=100")
+    wpcode_active = False
+    wpcode_plugin = None
+    if isinstance(plugins_resp, list):
+        for p in plugins_resp:
+            if not isinstance(p, dict):
+                continue
+            plugin_name = (p.get("name") or "")
+            if isinstance(plugin_name, dict):
+                plugin_name = plugin_name.get("raw", "")
+            plugin_path = (p.get("plugin") or "").lower()
+            if ("code" in plugin_name.lower() or "wpcode" in plugin_name.lower() or
+                "code" in plugin_path or "insert-headers" in plugin_path):
+                wpcode_plugin = p.get("plugin")
+                if p.get("status") == "active":
+                    wpcode_active = True
+                    break
+                else:
+                    # Tentar ativar
+                    try:
+                        activate_resp = request(site, f"wp/v2/plugins/{wpcode_plugin}", "POST", {"status": "active"})
+                        if isinstance(activate_resp, dict) and "error" not in activate_resp:
+                            wpcode_active = True
+                            print(f"[OK] Plugin '{plugin_name}' ativado")
+                            break
+                    except Exception:
+                        pass
 
-    if "error" in r:
-        print(f"[AVISO] WPCode API nao disponivel (HTTP {r['error']})")
-        print("   Ative o plugin WPCode Lite via wp-admin primeiro")
+    # 2. Injetar CSS via WPCode (se ativo)
+    css_injected = False
+    if wpcode_active:
+        data = {
+            "title": f"Atlas Digital — Visual Theme",
+            "code": css,
+            "type": "css",
+            "status": "active"
+        }
+        r = request(site, "wp/v2/wpcode-snippets", "POST", data)
+        if isinstance(r, dict) and "error" in r:
+            print(f"[AVISO] WPCode API nao disponivel (HTTP {r.get('error', '?')})")
+            print("   WPCode Lite nao expoe endpoint REST - aplicar CSS via wp-admin")
+        else:
+            print(f"[OK] CSS moderno injetado (ID: {r.get('id', '?')})")
+            css_injected = True
     else:
-        print(f"[OK] CSS moderno injetado (ID: {r['id']})")
+        print("[AVISO] WPCode nao disponivel - CSS nao injetado")
 
-    # Criar pagina inicial visual
-    home_content = """
-<header style="text-align:center; padding:60px 20px; background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); color:#fff; border-radius:12px; margin-bottom:40px;">
-  <h1 style="font-size:48px; margin-bottom:20px; color:#fff; font-weight:700;">Atlas Digital</h1>
-  <p style="font-size:20px; color:#c5c6c7; margin-bottom:30px;">Marketing de Afiliados, Tutoriais YouTube, Empreendedorismo Digital</p>
-  <a href="/sobre-nos" style="display:inline-block; padding:15px 40px; background:#e94560; color:#fff; text-decoration:none; border-radius:8px; font-weight:600; font-size:18px;">Conhecer Mais</a>
-</header>
-<section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:30px;">
-  <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-    <h3 style="color:#e94560; margin-bottom:15px;">Marketing de Afiliados</h3>
-    <p>Estrategias comprovadas para gerar renda com programas de afiliados.</p>
-  </div>
-  <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-    <h3 style="color:#e94560; margin-bottom:15px;">Tutoriais YouTube</h3>
-    <p>Conteudo educativo sobre como criar e monetizar canais no YouTube.</p>
-  </div>
-  <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-    <h3 style="color:#e94560; margin-bottom:15px;">Empreendedorismo</h3>
-    <p>Dicas e ferramentas para construir seu negocio digital do zero.</p>
-  </div>
-</section>
-"""
+    # 3. Verificar se ja existe uma Home page (slugs: home, home-2, home-3, home-4, home-5, home-6)
+    home_page = None
+    pages_resp = request(site, "wp/v2/pages?per_page=100")
+    if isinstance(pages_resp, list):
+        for p in pages_resp:
+            if not isinstance(p, dict):
+                continue
+            slug = (p.get("slug") or "").lower()
+            title_rendered = (p.get("title") or {}).get("rendered", "")
+            if "home" in slug.lower() or "home" in title_rendered.lower():
+                if home_page is None or p.get("id", 999) < home_page.get("id", 999):
+                    home_page = p
 
-    home_data = {
-        "title": "Home",
-        "slug": "home",
-        "status": "publish",
-        "type": "page",
-        "content": home_content,
-        "excerpt": "Pagina inicial do Atlas Digital"
-    }
-    r = request(site, "wp/v2/pages", "POST", home_data)
+    home_content = "<header style=\"text-align:center;padding:60px 20px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#fff;border-radius:12px;margin-bottom:40px;\"><h1 style=\"font-size:48px;margin-bottom:20px;color:#fff;font-weight:700;\">Atlas Digital</h1><p style=\"font-size:20px;color:#c5c6c7;margin-bottom:30px;\">Marketing de Afiliados, Tutoriais YouTube, Empreendedorismo Digital</p><a href=\"/sobre-nos\" style=\"display:inline-block;padding:15px 40px;background:#e94560;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;\">Conhecer Mais</a></header><section style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:30px;\"><div style=\"background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);\"><h3 style=\"color:#e94560;margin-bottom:15px;\">Marketing de Afiliados</h3><p>Estrategias comprovadas para gerar renda com programas de afiliados.</p></div><div style=\"background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);\"><h3 style=\"color:#e94560;margin-bottom:15px;\">Tutoriais YouTube</h3><p>Conteudo educativo sobre como criar e monetizar canais no YouTube.</p></div><div style=\"background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);\"><h3 style=\"color:#e94560;margin-bottom:15px;\">Empreendedorismo</h3><p>Dicas e ferramentas para construir seu negocio digital do zero.</p></div></section>"
 
-    if "error" in r:
-        print(f"[AVISO] Home page ja existe ou erro: {r['message'][:100]}")
+    if home_page:
+        # Atualizar Home existente
+        home_id = home_page.get("id", "?")
+        home_slug = home_page.get("slug", "?")
+        print(f"[INFO] Home page ja existe (ID {home_id}, slug: {home_slug}) - atualizando...")
+        r = request(site, f"wp/v2/pages/{home_id}", "POST", {"content": home_content})
+        if isinstance(r, dict) and "error" in r:
+            print(f"[ERRO] Falha ao atualizar: {r.get('message', '?')[:100]}")
+        else:
+            print(f"[OK] Home page atualizada: ID {home_id}")
     else:
-        print(f"[OK] Home page criada: ID {r['id']}")
-        print(f"   Link: {r['link']}")
+        # Criar nova Home page
+        print("[INFO] Nenhuma Home page encontrada - criando nova...")
+        data = {
+            "title": "Home",
+            "slug": "home",
+            "status": "publish",
+            "type": "page",
+            "content": home_content,
+            "excerpt": "Pagina inicial do Atlas Digital"
+        }
+        r = request(site, "wp/v2/pages", "POST", data)
+        if isinstance(r, dict) and "error" in r:
+            print(f"[ERRO] {r.get('message', '?')[:100]}")
+        else:
+            print(f"[OK] Home page criada: ID {r.get('id', '?')}")
+            print(f"   Link: {r.get('link', '?')}")
 
     print(f"\n[OK] Customizacao completa: {site_key}")
 
