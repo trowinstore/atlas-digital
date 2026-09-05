@@ -21,3 +21,5 @@ automations/**/credentials.json
 # Dados sensíveis WordPress
 wordpress/sites/**/wp-config.local.php
 wordpress/sites/**/.htpasswd
+# Logs e diagnosticos WordPress (nao versionar)
+wordpress/Log/
