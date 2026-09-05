@@ -67,6 +67,7 @@
 - **Email admin:** trowinstore@gmail.com
 - **Idioma:** pt_BR
 - **Usuário API:** atlas-api (ID: 10)
+- **Título do site:** Atlas Digital
 - **Plugins ativos (19):** Yoast SEO, LiteSpeed Cache, Site Kit, Hostinger Affiliate, IA Hostinger, YT Evolution, Smush Pro, WPCode Lite, etc.
 - **Plugins inativos notáveis:** Elementor, WooCommerce, AIOSEO, WZone Amazon Affiliates
 - **Páginas (5):**
