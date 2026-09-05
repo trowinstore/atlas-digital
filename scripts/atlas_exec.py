@@ -294,6 +294,180 @@ def diagnostic(site_key):
         print(f"Pretty Links: {len(links)} links criados")
 
 
+# ============== INJEÇÃO DE TEMA COMPLETO ==============
+
+def inject_full_theme(site_key):
+    """Injeta CSS moderno + cria home page visual"""
+    c = load_config()
+    site = c["sites"][site_key]
+    print(f"\n=== Customizando visual completo: {site_key} ===")
+
+    # CSS moderno (tema Atlas Digital)
+    css = """
+/* === ATLAS DIGITAL — VISUAL COMPLETO === */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    background: #f5f7fa !important;
+    color: #2c3e50 !important;
+}
+.site-header, .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    padding: 18px 0 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+.site-title a, .site-name a, .blog-name a {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+.site-description {
+    color: #c5c6c7 !important;
+    font-size: 14px !important;
+}
+nav.main-navigation, .main-nav, .primary-menu {
+    background: transparent !important;
+    margin-top: 10px !important;
+}
+nav a, .menu a, .main-nav a {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    padding: 8px 16px !important;
+    transition: color 0.3s !important;
+}
+nav a:hover, .menu a:hover {
+    color: #e94560 !important;
+}
+.content-area, .site-content {
+    background: #ffffff !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+    margin: 20px auto !important;
+    max-width: 1200px !important;
+}
+.entry-title, .post-title, h2.post-title a, h1.post-title {
+    color: #e94560 !important;
+    font-size: 24px !important;
+    margin-bottom: 15px !important;
+}
+.entry-content, .post-content, .post {
+    line-height: 1.8 !important;
+    color: #2c3e50 !important;
+    font-size: 16px !important;
+}
+.entry-content a, .post-content a {
+    color: #e94560 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+.entry-content a:hover, .post-content a:hover {
+    text-decoration: underline !important;
+}
+button, .button, input[type="submit"], .wp-block-button__link {
+    background: #e94560 !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background 0.3s !important;
+}
+button:hover, .button:hover, input[type="submit"]:hover {
+    background: #c23850 !important;
+}
+.widget, .sidebar .widget {
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+}
+.widget-title, .widgettitle {
+    color: #1a1a2e !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin-bottom: 15px !important;
+    border-bottom: 2px solid #e94560 !important;
+    padding-bottom: 8px !important;
+}
+footer, .site-footer, .footer {
+    background: #0f3460 !important;
+    color: #ffffff !important;
+    padding: 40px 20px !important;
+    text-align: center !important;
+}
+footer a, .site-footer a {
+    color: #c5c6c7 !important;
+    text-decoration: none !important;
+}
+footer a:hover, .site-footer a:hover {
+    color: #e94560 !important;
+}
+@media (max-width: 768px) {
+    .site-title a, .site-name a { font-size: 22px !important; }
+    .content-area { padding: 20px !important; margin: 10px !important; }
+    .entry-title { font-size: 20px !important; }
+}
+"""
+
+    # Tentar injetar via WPCode
+    data = {
+        "title": f"Atlas Digital — Visual Theme",
+        "code": css,
+        "type": "css",
+        "status": "active"
+    }
+    r = request(site, "wp/v2/wpcode-snippets", "POST", data)
+
+    if "error" in r:
+        print(f"[AVISO] WPCode API nao disponivel (HTTP {r['error']})")
+        print("   Ative o plugin WPCode Lite via wp-admin primeiro")
+    else:
+        print(f"[OK] CSS moderno injetado (ID: {r['id']})")
+
+    # Criar pagina inicial visual
+    home_content = """
+<header style="text-align:center; padding:60px 20px; background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); color:#fff; border-radius:12px; margin-bottom:40px;">
+  <h1 style="font-size:48px; margin-bottom:20px; color:#fff; font-weight:700;">Atlas Digital</h1>
+  <p style="font-size:20px; color:#c5c6c7; margin-bottom:30px;">Marketing de Afiliados, Tutoriais YouTube, Empreendedorismo Digital</p>
+  <a href="/sobre-nos" style="display:inline-block; padding:15px 40px; background:#e94560; color:#fff; text-decoration:none; border-radius:8px; font-weight:600; font-size:18px;">Conhecer Mais</a>
+</header>
+<section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:30px;">
+  <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+    <h3 style="color:#e94560; margin-bottom:15px;">Marketing de Afiliados</h3>
+    <p>Estrategias comprovadas para gerar renda com programas de afiliados.</p>
+  </div>
+  <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+    <h3 style="color:#e94560; margin-bottom:15px;">Tutoriais YouTube</h3>
+    <p>Conteudo educativo sobre como criar e monetizar canais no YouTube.</p>
+  </div>
+  <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+    <h3 style="color:#e94560; margin-bottom:15px;">Empreendedorismo</h3>
+    <p>Dicas e ferramentas para construir seu negocio digital do zero.</p>
+  </div>
+</section>
+"""
+
+    home_data = {
+        "title": "Home",
+        "slug": "home",
+        "status": "publish",
+        "type": "page",
+        "content": home_content,
+        "excerpt": "Pagina inicial do Atlas Digital"
+    }
+    r = request(site, "wp/v2/pages", "POST", home_data)
+
+    if "error" in r:
+        print(f"[AVISO] Home page ja existe ou erro: {r['message'][:100]}")
+    else:
+        print(f"[OK] Home page criada: ID {r['id']}")
+        print(f"   Link: {r['link']}")
+
+    print(f"\n[OK] Customizacao completa: {site_key}")
+
+
 # ============== MENU PRINCIPAL ==============
 
 ACTIONS = {
@@ -310,6 +484,7 @@ ACTIONS = {
     "delete-link": "Excluir Pretty Link (uso: delete-link <site> <id> [--force])",
     "tagline": "Atualizar tagline (uso: tagline <site> <texto>)",
     "css": "Injetar CSS (uso: css <site> <codigo_css>)",
+    "theme": "Injetar tema completo (uso: theme <site>)",
 }
 
 
@@ -395,6 +570,8 @@ if __name__ == "__main__":
     elif action == "css":
         css = " ".join(args) if args else "body{color:red}"
         inject_css(site_key, css)
+    elif action == "theme":
+        inject_full_theme(site_key)
     else:
         print(f"Acao desconhecida: {action}")
         print(f"Use 'help' para ver acoes disponiveis")
