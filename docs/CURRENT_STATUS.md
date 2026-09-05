@@ -4,13 +4,15 @@
 
 **Branch atual:** main (origin/main sincronizado)
 
-**Último commit:** 9a1a1ec - "docs: atualizar CURRENT_STATUS com informações de links de afiliado criados"
+**Último commit:** 6470aaa - "docs: atualizar CURRENT_STATUS com posts de afiliados publicados"
 
 **Última verificação:** 2026-08-29
 
 ### Histórico de Commits Recentes
 | Hash | Mensagem |
 |------|----------|
+| 6470aaa | docs: atualizar CURRENT_STATUS com posts de afiliados publicados |
+| 5a3b44b | docs: atualizar CURRENT_STATUS com novas Application Passwords geradas via script |
 | 9a1a1ec | docs: atualizar CURRENT_STATUS com informações de links de afiliado criados |
 | e86a379 | docs: atualizar CURRENT_STATUS com Wordfence ativado e diagnóstico de plugins |
 | 4b1de92 | docs: atualizar CURRENT_STATUS com diagnóstico completo dos sites |
@@ -149,26 +151,53 @@
 
 ## Links de Afiliado Criados (2026-08-29)
 
-### ofertasamazon.trowinstore.com.br — Pretty Links v4.0.14
-| ID | Produto | URL Curta | URL Original | Status |
-|----|---------|-----------|-------------|--------|
-| 1 | Teste (Amazon) | /0jx5 | https://www.amazon.com/dp/B08N5WRWNW | ✅ Criado |
-| 2 | Cadeira ergonômica gamer | /1sab | https://www.amazon.com/dp/B08N5WRWNW | ✅ Criado |
-| 3 | Fone de ouvido noise cancelling | /fg23 | https://www.amazon.com/dp/B09XYZ123 | ✅ Criado |
-| 4 | Cortador de cabelo elétrico | /yiwg | https://www.amazon.com/dp/B07QJM6YG | ✅ Criado |
+### ofertasamazon.trowinstore.com.br — Pretty Links v4.0.14 (com UTM)
 
-- **Endpoint API:** `/wp-json/pretty-links/v1/links`
-- **Cloaking:** ✅ Ativado
-- **Total:** 4 links criados (1 teste + 3 produtos reais)
+| ID | Produto | Slug | Post Vinculado | UTM | Status |
+|----|---------|------|----------------|-----|--------|
+| 9 | Cadeira Ergonômica Gamer | /a4aq | ID 2073 | ✅ | Criado |
+| 10 | Fone Noise Cancelling | /bkzr | ID 2074 | ✅ | Criado |
+| 11 | Cortador de Cabelo Elétrico | /ah12 | ID 2075 | ✅ | Criado |
+
+**Parâmetros UTM ativos:**
+- `?utm_source=ofertasamazon`
+- `&utm_medium=affiliate`
+- `&utm_campaign=produtos-amazon`
+
+**Endpoint API:** `/wp-json/pretty-links/v1/links`
+**Cloaking:** ✅ Ativado
+**Total:** 3 links criados com UTM + 1 teste excluído
 
 ## Próximas Ações Prioritárias
 
-1. **Revogar Application Passwords expostas** - Segurança comprometida
-2. **Gerar novas Application Passwords** - Atualizar 
-3. **Planejar conteúdo inicial** - Ambos os sites estão vazios
-4. **Configurar Pretty Links** - Para operação de afiliados no ofertasamazon
+1. ~~Revogar Application Passwords expostas~~ — ✅ Concluído (novas senhas geradas via script)
+2. ~~Gerar novas Application Passwords~~ — ✅ Concluído
+3. ~~Configurar Pretty Links~~ — ✅ Concluído (3 links com UTM)
+4. **Planejar conteúdo inicial** - Usar links UTM nos posts de oferta
+5. **Configurar All in One SEO** - Em ambos os sites
 5. **Configurar All in One SEO** - Em ambos os sites
 6. **Atualizar título do trowinstore** - Ainda diz "Mude nas Configurações"
 7. **Configurar WooCommerce no ofertasamazon** - Definir moeda, métodos de pagamento, etc.
 
 *Consulte docs/NEXT_ACTIONS.md para checklist completo*
+
+---
+
+## 📊 Resumo Geral do Projeto
+
+| Área | Status |
+|------|--------|
+| **Segurança** | ✅ Application Passwords renovadas via script |
+| **WooCommerce** | ✅ Ativado (v10.7.0) no ofertasamazon |
+| **Páginas WooCommerce** | ✅ 8 duplicadas removidas |
+| **Posts publicados** | ✅ 4 posts no ofertasamazon (IDs 1, 2073-2075) |
+| **Links de Afiliado** | ✅ 3 links com UTM (IDs 9, 10, 11) |
+| **Rastreamento UTM** | ✅ Ativo (`utm_source=ofertasamazon`, `utm_medium=affiliate`, `utm_campaign=produtos-amazon`) |
+| **Pretty Links** | ✅ Ativo (v4.0.14) |
+| **Documentação** | ✅ 9 arquivos em `docs/` atualizados |
+| **Commits** | ✅ 12 commits locais à frente do origin |
+
+### 📈 Links UTM Ativos
+- **Link #9 (Cadeira):** `https://www.amazon.com/dp/B08N5WRWNW?utm_source=ofertasamazon&utm_medium=affiliate&utm_campaign=produtos-amazon`
+- **Link #10 (Fone):** `https://www.amazon.com/dp/B09XYZ123?utm_source=ofertasamazon&utm_medium=affiliate&utm_campaign=produtos-amazon`
+- **Link #11 (Cortador):** `https://www.amazon.com/dp/B07QJM6YG?utm_source=ofertasamazon&utm_medium=affiliate&utm_campaign=produtos-amazon`
