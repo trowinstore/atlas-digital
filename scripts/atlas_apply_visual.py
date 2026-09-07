@@ -1,0 +1,414 @@
+"""
+Atualiza o CSS de identidade visual no trowinstore.com.br
+"""
+import json
+import urllib.request
+import urllib.error
+import base64
+from pathlib import Path
+
+CONFIG = Path('config/sites.local.json')
+
+
+def load_config():
+    with open(CONFIG, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def auth(site):
+    return base64.b64encode(
+        (site['username'] + ':' + site['application_password']).encode()
+    ).decode()
+
+
+# CSS corrigido - logo na esquerda, titulo + slogan no centro
+TROWIN_CSS = """<style>
+:root {
+  --trowin-dark: #1A2238;
+  --trowin-cyan: #00E5FF;
+  --trowin-purple: #B026FF;
+  --trowin-white: #ffffff;
+  --trowin-bg: #f0f4f8;
+  --trowin-text: #2a2a2a;
+}
+
+/* HEADER */
+.site-header {
+  background: linear-gradient(135deg, #1A2238 0%, #0f1629 100%) !important;
+  border-bottom: 2px solid #00E5FF !important;
+  padding: 15px 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.15) !important;
+}
+
+/* Container principal - layout horizontal: logo | titulo | menu */
+.inside-header {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  flex-wrap: nowrap !important;
+}
+
+/* LOGO - posicionar na esquerda com flexbox manual */
+.site-logo {
+  order: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: left !important;
+}
+
+.site-logo a,
+.site-logo a:hover {
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.site-logo img,
+img.header-image {
+  display: block !important;
+  max-height: 50px !important;
+  max-width: 50px !important;
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+/* BRANDING - coluna flex com titulo e slogan */
+.site-branding {
+  order: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  flex: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+}
+
+/* TITULO */
+.main-title,
+h1.main-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+}
+
+.main-title a,
+.main-title a:hover {
+  color: #ffffff !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(90deg, #00E5FF, #B026FF) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-decoration: none !important;
+  line-height: 1.2 !important;
+}
+
+/* SLOGAN - abaixo do titulo */
+.site-description,
+p.site-description {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 12px !important;
+  margin: 2px 0 0 0 !important;
+  padding: 0 !important;
+  line-height: 1.3 !important;
+  order: 2 !important;
+}
+
+/* NAVEGACAO - empurrar para a direita */
+.main-navigation {
+  order: 2 !important;
+  margin-left: auto !important;
+}
+
+.main-navigation .main-nav ul li a {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  transition: all 0.3s !important;
+}
+
+.main-navigation .main-nav ul li a:hover {
+  background: linear-gradient(135deg, #00E5FF, #B026FF) !important;
+  color: #1A2238 !important;
+}
+
+/* BODY / FUNDO */
+body {
+  background: #f0f4f8 !important;
+  color: #2a2a2a !important;
+  font-family: "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* TITULOS */
+h1 { color: #1A2238 !important; font-size: 32px !important; }
+h2 { color: #1A2238 !important; font-size: 26px !important; }
+h3 { color: #00E5FF !important; font-size: 20px !important; }
+h4, h5, h6 { color: #1A2238 !important; }
+
+.entry-title, .entry-title a, .post-title, .post-title a, .widget-title {
+  color: #1A2238 !important;
+  font-weight: 700 !important;
+}
+
+.entry-title a:hover, h1 a:hover, h2 a:hover, h3 a:hover {
+  color: #B026FF !important;
+}
+
+/* TEXTO E LINKS */
+p, li, td, th, dd, dt, .entry-content, .post-content, .post {
+  color: #2a2a2a !important;
+  line-height: 1.7 !important;
+}
+
+.entry-content a, .post-content a {
+  color: #B026FF !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+}
+
+.entry-content a:hover, .post-content a:hover {
+  color: #00E5FF !important;
+  text-decoration: none !important;
+}
+
+a {
+  color: #B026FF !important;
+  transition: color 0.3s !important;
+}
+
+a:hover {
+  color: #00E5FF !important;
+}
+
+/* BOTOES */
+button, .button, input[type=submit], .wp-block-button__link {
+  background: linear-gradient(135deg, #00E5FF 0%, #B026FF 100%) !important;
+  color: #1A2238 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 12px 28px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+button:hover, .button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(176, 38, 255, 0.5) !important;
+}
+
+/* POSTS */
+article, .post, .entry-wrap, .separate-containers .site-main {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 30px !important;
+  box-shadow: 0 4px 20px rgba(26, 34, 56, 0.08) !important;
+  margin-bottom: 30px !important;
+  border: 1px solid rgba(0, 229, 255, 0.1) !important;
+}
+
+.entry-title {
+  font-size: 24px !important;
+  margin-bottom: 15px !important;
+  line-height: 1.3 !important;
+}
+
+/* WIDGETS */
+.widget {
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+  border: 1px solid rgba(0, 229, 255, 0.15) !important;
+}
+
+.widget-title {
+  color: #1A2238 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #00E5FF !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 15px !important;
+}
+
+/* FOOTER */
+.site-footer, footer {
+  background: #1A2238 !important;
+  color: #ffffff !important;
+  padding: 40px 20px !important;
+  border-top: 2px solid #B026FF !important;
+  text-align: center !important;
+}
+
+.site-footer a, footer a {
+  color: #00E5FF !important;
+}
+
+.site-footer a:hover, footer a:hover {
+  color: #B026FF !important;
+}
+
+/* FORMS */
+input[type=text], input[type=email], input[type=url], input[type=password],
+input[type=search], input[type=number], input[type=tel], input[type=date],
+textarea, select {
+  background: #ffffff !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  color: #2a2a2a !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #00E5FF !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
+  outline: none !important;
+}
+
+label {
+  color: #1A2238 !important;
+  font-weight: 600 !important;
+}
+
+/* META INFO */
+.entry-meta, .entry-footer, .posted-on, .byline, .author {
+  color: #888 !important;
+  font-size: 13px !important;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .inside-header {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 10px !important;
+  }
+
+  .main-title a,
+  .site-branding .main-title a {
+    font-size: 20px !important;
+  }
+
+  .site-logo img,
+  img.header-image {
+    max-height: 40px !important;
+    max-width: 40px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .site-branding {
+    align-items: center !important;
+  }
+
+  h1 { font-size: 24px !important; }
+  h2 { font-size: 20px !important; }
+  h3 { font-size: 18px !important; }
+
+  article, .post {
+    padding: 20px !important;
+    margin: 10px !important;
+  }
+}
+</style>"""
+
+
+def main():
+    c = load_config()
+    site = c['sites']['trowinstore']
+    base_url = site['url']
+    cred = auth(site)
+
+    print('=' * 70)
+    print('ATUALIZACAO CSS - LAYOUT LOGO + TITULO + SLOGAN')
+    print('=' * 70)
+    print()
+    print('Estrutura desejada (horizontal):')
+    print('  [LOGO] TROWIN STORE      [Menu]')
+    print('         Marketing de Afiliados...')
+    print()
+    print('Estrutura corrigida com order no flexbox:')
+    print('  .site-logo      (order: 0)  <- aparece primeiro')
+    print('  .site-branding  (order: 1)  <- coluna flex')
+    print('    .main-title               <- titulo')
+    print('    .site-description        <- slogan abaixo do titulo')
+    print('  .main-navigation (order: 2)  <- menu na direita')
+    print()
+
+    data = {
+        'title': 'TROWIN STORE - Identidade Visual Oficial',
+        'code': TROWIN_CSS,
+        'type': 'html',
+        'status': 'active'
+    }
+
+    req = urllib.request.Request(
+        base_url + '/wp-json/wp/v2/wpcode-snippets',
+        data=json.dumps(data).encode(),
+        headers={
+            'Authorization': 'Basic ' + cred,
+            'Content-Type': 'application/json'
+        },
+        method='POST'
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            print('[OK] CSS aplicado via WPCode!')
+    except urllib.error.HTTPError as e:
+        print('[AVISO] WPCode API HTTP ' + str(e.code))
+        print('        Cole o CSS manualmente em WPCode Lite')
+    except Exception as e:
+        print('[ERRO] ' + str(e)[:80])
+
+    print()
+    print('=' * 70)
+    print('ESTRUTURA FINAL DO HEADER')
+    print('=' * 70)
+    print()
+    print('  HTML original:')
+    print('    <div.site-branding>')
+    print('      <h1.main-title>TROWIN STORE</h1>')
+    print('      <p.site-description>Slogan</p>')
+    print('    </div>')
+    print('    <div.site-logo>')
+    print('      <img>')
+    print('    </div>')
+    print()
+    print('  Visual apos CSS:')
+    print('    +------+ +-----------+ +--------+')
+    print('    | LOGO | | TITULO    | |  MENU  |')
+    print('    |      | | slogan... | |        |')
+    print('    +------+ +-----------+ +--------+')
+    print()
+    print('  Logica CSS:')
+    print('    - .inside-header usa display: flex')
+    print('    - .site-logo order: 0 (esquerda)')
+    print('    - .site-branding order: 1 (meio, coluna)')
+    print('    - .main-navigation order: 2 (direita)')
+    print()
+    print('=' * 70)
+    print('Se a API WPCode falhou, aplique manualmente em wp-admin:')
+    print('  Plugins > WPCode Lite > Editar snippet > Colar CSS')
+    print('=' * 70)
+
+
+if __name__ == '__main__':
+    main()
